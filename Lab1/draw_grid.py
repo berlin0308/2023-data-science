@@ -1,4 +1,4 @@
-"""Lab1-C-1
+"""C-1
 Write a function draw_grid(m=2, n=3) 
 that draws a similar grid with m rows and n columns.
 """
