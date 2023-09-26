@@ -1,13 +1,21 @@
+from typing import Any
+
+
 class Array:
     """A Array is a self-defined sequential data type which contains a name."""
     
-    def __init__(self, name, contents=[]):
+    def __init__(self, name, contents=None): # default: None as an immutable variable
         """Initialize the contents.
         name: string
         contents: initial contents.
         """
         self.name = name
-        self.contents = contents
+
+        # if no contents, create a new list for the new Array
+        if contents is None:
+            self.contents = []
+        else:
+            self.contents = contents
 
     def __str__(self):
         """Return a string representaion of this Array.
@@ -18,8 +26,11 @@ class Array:
             t.append(s)
         return '\n'.join(t)
 
-    # TODO_C1
-    # Hint: two special functions here
+    def __getitem__(self, index):
+        return self.contents[index]
+
+    def __setitem__(self, index, value):
+        self.contents[index] = value
 
     def add_item(self, item):
         """Adds a new item to the contents.
@@ -52,7 +63,7 @@ def main():
 
     # If you run this program as is, it seems to work.
     # To see the problem, trying printing arr2.
-
+    print(arr2)
 
 if __name__ == "__main__":
     main()

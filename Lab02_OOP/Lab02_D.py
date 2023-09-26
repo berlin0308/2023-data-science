@@ -1,12 +1,21 @@
 class MyEnumerate():
     def __init__(self, data, label):
-        pass #TODO_D
+        self.data = data
+        self.label = label
+        self.i = 0
 
     def __iter__(self):
-        pass #TODO_D
+        # print("iterating")
+        
+        return iter(self.__next__, [3])
 
     def __next__(self):
-        pass #TODO_D
+        if self.i >= len(self.label):
+            raise StopIteration 
+
+        # print("next")
+        self.i += 1
+        return self.i-1, self.data[self.i-1], self.label[self.i-1]
 
 def main():
 
